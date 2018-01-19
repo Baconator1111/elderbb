@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-class Todo extends Component{
+class WhiteBbs extends Component{
     constructor(props){
         super(props)
 
@@ -28,4 +28,4 @@ class Todo extends Component{
             </div>
         )
     }
-} export default Todo
+} export default WhiteBbs

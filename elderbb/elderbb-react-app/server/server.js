@@ -8,10 +8,14 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-app.get('/api/products/white', productsCtrl.white);
-app.get('/api/products/bio', productsCtrl.bio);
-app.get('/api/products/tracer', productsCtrl.tracer);
+app.get('/api/products', productsCtrl.read);
+// app.get('/api/products/white', productsCtrl.white);
+// app.get('/api/products/bio', productsCtrl.bio);
+// app.get('/api/products/tracer', productsCtrl.tracer);
 app.get('/api/cart', cartCtrl.read);
+app.post('/api/cart/', cartCtrl.create);
+app.put('/api/cart/:prodName/:qty', cartCtrl.update);
+app.delete('/api/cart/:prodName', cartCtrl.delete);
 
 
 const PORT = 3060;

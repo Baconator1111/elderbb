@@ -57,5 +57,19 @@ const productList = {
 }
 
 module.exports = {
-
+        read: (req, res, next)=>{
+            switch(req.query.type){
+                case 'white': 
+                    res.status(200).send(productList.white)
+                    break;
+                case 'bio':
+                    res.status(200).send(productList.biodegradable)
+                    break;
+                case 'tracer': 
+                    res.status(200).send(productList.tracer)
+                    break;
+                default:
+                    res.status(404).send('item does not exist')
+            }
+        }
 }

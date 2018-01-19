@@ -9,6 +9,9 @@ app.use(bodyParser.json());
 
 
 app.get('/api/products/white', productsCtrl.white);
+app.get('/api/products/bio', productsCtrl.bio);
+app.get('/api/products/tracer', productsCtrl.tracer);
+app.get('/api/cart', cartCtrl.read);
 
 
 const PORT = 3060;

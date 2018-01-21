@@ -1,0 +1,28 @@
+.tiles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tile{ 
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+    align-content: stretch;
+    margin: 1rem;
+}
+
+.productImg{
+    max-width: 15vw;
+    border-radius: 15px;
+}
+.addToCart{
+    cursor: pointer;
+}

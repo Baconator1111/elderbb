@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import './cart.css'
 
 class Cart extends Component{
     constructor(props){
@@ -30,11 +31,11 @@ class Cart extends Component{
                 <h1>Cart</h1>
                 {this.state.cart.map((val)=>{
                     return(
-                        <div key={val._id} className='tiles'>
-                            <div className='name'>{val.product}</div>
-                            <div className='info'>{val.amount}</div>
-                            <div className='price'>${val.price}</div>
-                            <div className='qty'>Quantity: {val.qty}</div>
+                        <div key={val._id} className='table'>
+                            <div className='itemName'>{val.product}</div>
+                            <div className='itemInfo'>{val.amount}</div>
+                            <div className='itemPrice'>${val.price}</div>
+                            <div className='itemQty'>Quantity: {val.qty}</div>
                             <input type="number" onChange={e=>this.handleChange(e.target.value, val._id)} placeholder='Change Quantity Here'/>
                             <button onClick={()=>{this.handleClick(val._id);
                                 console.log('onClick button', val._id)}}>Delete Item</button>

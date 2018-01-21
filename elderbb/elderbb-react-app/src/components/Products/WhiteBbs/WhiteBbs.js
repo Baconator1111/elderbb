@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import ProductTile from './../ProductTile'
-import './white.css'
+import './../products.css'
 
 class WhiteBbs extends Component{
     constructor(props){
@@ -26,13 +26,18 @@ class WhiteBbs extends Component{
         } else{
         return(
             <div>
-                        <h3>White Bbs</h3>
+                <h3>White Bbs</h3>
+                <div className='tiles'>
                 {this.state.products.map((val)=>{
                     return(
-                       <ProductTile key={val._id} val={val}/>
+                        <div key={val._id}  className='tile'>
+                            <img className='productImg' src="./images/whitebbs.jpg" alt="White"/>
+                            <ProductTile  val={val} />
+                        </div>
                     )
 
                 })}
+                </div>    
             </div>
                 )
             }

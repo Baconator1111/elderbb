@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import './tracer.css'
+import ProductTile from './../ProductTile'
+import './../products.css'
 
 class TracerBbs extends Component{
     constructor(props){
@@ -9,6 +10,7 @@ class TracerBbs extends Component{
         this.state={
             products: []
         }
+        
     }
     componentDidMount(){
         axios.get('/api/products?type=tracer')
@@ -16,19 +18,29 @@ class TracerBbs extends Component{
                 this.setState({products: resp.data})
             })
     }
+
+    
     render(){
+        if(!this.state.products){
+             return <div>Loading</div>
+        } else{
         return(
             <div>
+                <h3>Tracer Bbs</h3>
+                <div className='tiles'>
                 {this.state.products.map((val)=>{
-                    <div className='tiles'>
-                    <div className='name'>{val.product}</div>
-                    <div className='info'>{val.amount}</div>
-                    <div className='price'>{val.price}</div>
-                    <div className='qty'>{val.qty}</div>
-                </div>
+                    return(
+                        <div key={val._id}  className='tile'>
+                            <img className='productImg' src="./images/tracerBbs.png" alt="Tracer"/>
+                            <ProductTile  val={val} />
+                        </div>
+                    )
 
                 })}
+                </div>    
             </div>
-        )
+                )
+            }
+        
     }
 } export default TracerBbs

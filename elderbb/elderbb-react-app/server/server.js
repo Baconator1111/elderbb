@@ -14,11 +14,11 @@ app.get('/api/products', productsCtrl.read);
 // app.get('/api/products/tracer', productsCtrl.tracer);
 app.post('/api/cart/', cartCtrl.create);
 app.get('/api/cart', cartCtrl.read);
-app.put('/api/cart/:prodName/:qty', cartCtrl.update);
-app.delete('/api/cart/:prodName', cartCtrl.delete);
+app.put('/api/cart/:_id/:qty', cartCtrl.update);
+app.delete('/api/cart/:_id', cartCtrl.delete);
 
 
 const PORT = 3060;
 app.listen(PORT, function() {
     console.log(`Listening to port ${PORT}`)
-});
+}); 

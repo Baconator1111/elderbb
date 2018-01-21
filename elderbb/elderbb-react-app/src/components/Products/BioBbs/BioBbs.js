@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import './bio.css'
+
 class BioBbs extends Component{
     constructor(props){
         super(props)
@@ -18,11 +20,12 @@ class BioBbs extends Component{
         return(
             <div>
                 {this.state.products.map((val)=>{
-                    <div>
-                        <div>{val.product}</div>
-                        <div>{val.amount}</div>
-                        <div>{val.price}</div>
-                    </div>
+                    <div className='tiles'>
+                    <div className='name'>{val.product}</div>
+                    <div className='info'>{val.amount}</div>
+                    <div className='price'>{val.price}</div>
+                    <div className='qty'>{val.qty}</div>
+                </div>
 
                 })}
             </div>

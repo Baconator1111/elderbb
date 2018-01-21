@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import ProductTile from './../ProductTile'
+import './white.css'
+
 class WhiteBbs extends Component{
     constructor(props){
         super(props)
@@ -7,6 +10,7 @@ class WhiteBbs extends Component{
         this.state={
             products: []
         }
+        
     }
     componentDidMount(){
         axios.get('/api/products?type=white')
@@ -14,18 +18,24 @@ class WhiteBbs extends Component{
                 this.setState({products: resp.data})
             })
     }
+
+    
     render(){
+        if(!this.state.products){
+             return <div>Loading</div>
+        } else{
         return(
             <div>
+                        <h3>White Bbs</h3>
                 {this.state.products.map((val)=>{
-                    <div>
-                        <div>{val.product}</div>
-                        <div>{val.amount}</div>
-                        <div>{val.price}</div>
-                    </div>
+                    return(
+                       <ProductTile key={val._id} val={val}/>
+                    )
 
                 })}
             </div>
-        )
+                )
+            }
+        
     }
 } export default WhiteBbs

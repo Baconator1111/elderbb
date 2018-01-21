@@ -1,5 +1,6 @@
 var cart = [];
 
+
 module.exports = {
     read: function(req, res) {
         res.status(200).send(cart);
@@ -7,40 +8,37 @@ module.exports = {
     create: (req, res)=> {
         cart.push(req.body)
         // console.log('consol?', cart)
-        // if(cart===null){
-        //     console.log(cart)
+        // if(cart.length===0){
         //     cart.push(req.body)
-        //     console.log(cart)
         // } else{
         // let newCart = cart.map((item)=>{
         //     if(item.product === req.body.product){
-        //      item.quantity+= req.body.qty
+        //      item.qty+= req.body.qty
         //      return item
-        //     } else {
-        //         cart.push(req.body)
-        //         return item
-        //     }
+        //     } else {return ({...item, req.body})}
             
         //   }) 
         //   cart = newCart
-        // }
+        //   }
+        
           
-        res.status(200).send('Item added to cart')
+        res.status(200).json(cart)
     },
     update: (req, res)=>{
         let newCart = cart.map((item)=>{
-            if(item.product === req.params.prodName){
+            if(item._id === req.params._id){
              item.qty = Number(req.params.qty)
              return item
             } else {return item}
           })
           cart = newCart
-          res.status(200).send('Item quantity updated')
+          res.status(200).json(cart)
     },
     delete: (req, res)=>{
-        let newCart = cart.filter((item)=>item.product !== req.params.prodName)
+        console.log('delete hit', req.params._id)
+        let newCart = cart.filter((item)=>item._id !== req.params._id)
         cart = newCart
-        res.status(200).send('Item Deleted from cart')
+        res.status(200).json(cart)
     }
 
 }

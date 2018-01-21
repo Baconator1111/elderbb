@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'
-import Homepage from './components/Home-page/Home-page'
-import NavBar from './components/Home-page/Home-page'
+// import Homepage from './components/Home-page/Home-page'
+// import NavBar from './components/Home-page/Home-page'
 import Products from './components/Products/Products'
+import Cart from './components/Cart/Cart'
 
 
 class App extends Component {
@@ -15,19 +16,19 @@ class App extends Component {
   }
   componentDidMount() {
     axios.get('http://localhost:3060/api/cart').then(resp => {
-      console.log(resp);
       this.setState({
        todos: resp.data
       })
     })
   }
   render() {
-      var todosToDisplay = this.state.cart.map((product)=>{
-        return <Products name={product.name}/>
-      })
+      // var todosToDisplay = this.state.cart.map((product)=>{
+      //   return <Products name={product.name}/>
+      // })
     return (
       <div className="App">
-        {todosToDisplay}
+        <Products />
+        <Cart />
       </div>
     );
   }

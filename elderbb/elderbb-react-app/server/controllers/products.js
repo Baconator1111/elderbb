@@ -68,18 +68,32 @@ const productList = {
         qty: 1
     }]
 }
+function generate(count) {
+    let _sym = 'abcdefghijklmnopqrstuvwxyz1234567890'
+    let str = ''
 
+    for(let i = 0; i < count; i++) {
+        str += _sym[parseInt(Math.random() * (_sym.length))];
+    }
+    return str
+}
+function addIdtoItem(arr){
+    return arr.map((prod)=>{return{...prod, _id: generate(20)}});
+}
 module.exports = {
         read: (req, res, next)=>{
             switch(req.query.type){
                 case 'white': 
-                    res.status(200).send(productList.white)
+                    res.status(200).send(addIdtoItem( productList.white))
+                    console.log('whiteBbs endpoint hit')
                     break;
                 case 'bio':
-                    res.status(200).send(productList.biodegradable)
+                    res.status(200).send(addIdtoItem( productList.biodegradable))
+                    console.log('BioBbs endpoint hit')
                     break;
                 case 'tracer': 
-                    res.status(200).send(productList.tracer)
+                    res.status(200).send(addIdtoItem( productList.tracer))
+                    console.log('tracerBbs endpoint hit')
                     break;
                 default:
                     res.status(404).send('item does not exist')

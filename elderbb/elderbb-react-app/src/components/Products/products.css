@@ -24,5 +24,29 @@
     border-radius: 15px;
 }
 .addToCart{
+    background: #2e8c31;
+    background-image: -webkit-linear-gradient(top, #2e8c31, #09ad42);
+    background-image: -moz-linear-gradient(top, #2e8c31, #09ad42);
+    background-image: -ms-linear-gradient(top, #2e8c31, #09ad42);
+    background-image: -o-linear-gradient(top, #2e8c31, #09ad42);
+    background-image: linear-gradient(to bottom, #2e8c31, #09ad42);
+    -webkit-border-radius: 9;
+    -moz-border-radius: 9;
+    border-radius: 9px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 6px;
+    text-decoration: none;
     cursor: pointer;
 }
+
+.addToCart:hover {
+    background: #1ca6a6;
+    background-image: -webkit-linear-gradient(top, #1ca6a6, #00a68a);
+    background-image: -moz-linear-gradient(top, #1ca6a6, #00a68a);
+    background-image: -ms-linear-gradient(top, #1ca6a6, #00a68a);
+    background-image: -o-linear-gradient(top, #1ca6a6, #00a68a);
+    background-image: linear-gradient(to bottom, #1ca6a6, #00a68a);
+    text-decoration: none;
+  }

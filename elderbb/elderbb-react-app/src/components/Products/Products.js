@@ -7,9 +7,9 @@ import './products.css'
 function Products (){
         return(
             <div>
-                <WhiteBbs />
-                <BioBbs />
-                <TracerBbs />
+                <WhiteBbs name='white'/>
+                <BioBbs name='bio'/>
+                <TracerBbs name='tracer'/>
             </div>
             
         )

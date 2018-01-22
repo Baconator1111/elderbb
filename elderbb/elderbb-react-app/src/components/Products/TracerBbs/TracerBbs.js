@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import ProductTile from './../ProductTile'
 import './../products.css'
+import './tracer.css'
 
 class TracerBbs extends Component{
     constructor(props){
@@ -25,7 +26,7 @@ class TracerBbs extends Component{
              return <div>Loading</div>
         } else{
         return(
-            <div>
+            <div className='tracerProd'>
                 <h3>Tracer Bbs</h3>
                 <div className='tiles'>
                 {this.state.products.map((val)=>{

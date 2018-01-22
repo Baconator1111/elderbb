@@ -1,7 +1,59 @@
+.cartMain{
+    border: solid 1px black;
+}
+
 .table{
     font-size: 1.5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    margin: 20px;
+   
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+  }
+
+.table input{
+    font-size: 1rem;
+}
+
+.table button{
+    background: #f01f1f;
+    background-image: -webkit-linear-gradient(top, #f01f1f, #b82b2b);
+    background-image: -moz-linear-gradient(top, #f01f1f, #b82b2b);
+    background-image: -ms-linear-gradient(top, #f01f1f, #b82b2b);
+    background-image: -o-linear-gradient(top, #f01f1f, #b82b2b);
+    background-image: linear-gradient(to bottom, #f01f1f, #b82b2b);
+    -webkit-border-radius: 60;
+    -moz-border-radius: 60;
+    border-radius: 60px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    padding: 6px;
+    text-decoration: none;
+}
+.table button:hover{
+    background: #a61c1c;
+    background-image: -webkit-linear-gradient(top, #a61c1c, #a80000);
+    background-image: -moz-linear-gradient(top, #a61c1c, #a80000);
+    background-image: -ms-linear-gradient(top, #a61c1c, #a80000);
+    background-image: -o-linear-gradient(top, #a61c1c, #a80000);
+    background-image: linear-gradient(to bottom, #a61c1c, #a80000);
+    text-decoration: none;
+    cursor: pointer;
 }

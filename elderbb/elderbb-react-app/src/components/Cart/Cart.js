@@ -27,10 +27,15 @@ class Cart extends Component{
     }
     render(){
         return(
-            <div>
+            <div className='cartMain'>
                 <h1>Cart</h1>
+                <table>
+
                 {this.state.cart.map((val)=>{
                     return(
+                        <thead>
+                            <tr>
+
                         <div key={val._id} className='table'>
                             <div className='itemName'>{val.product}</div>
                             <div className='itemInfo'>{val.amount}</div>
@@ -40,8 +45,11 @@ class Cart extends Component{
                             <button onClick={()=>{this.handleClick(val._id);
                                 console.log('onClick button', val._id)}}>Delete Item</button>
                         </div>
+                            </tr>
+                        </thead>
                     )}
                 )}
+                </table>
             </div>
         )
     }

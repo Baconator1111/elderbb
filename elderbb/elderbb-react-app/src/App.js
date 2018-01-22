@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'
 // import Homepage from './components/Home-page/Home-page'
-// import NavBar from './components/Home-page/Home-page'
+import NavBar from './components/HomePage/NavBar/NavBar'
 import Products from './components/Products/Products'
 import Cart from './components/Cart/Cart'
 
@@ -27,6 +27,7 @@ class App extends Component {
       // })
     return (
       <div className="App">
+        <NavBar/>
         <Products />
         <Cart />
       </div>

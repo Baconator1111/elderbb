@@ -14,7 +14,7 @@ module.exports = {
         // let newCart = cart.map((item)=>{
         //     if(item.product === req.body.product){
         //      item.qty+= req.body.qty
-        //      return item
+        //      return item 
         //     } else {return ({...item, req.body})}
             
         //   }) 

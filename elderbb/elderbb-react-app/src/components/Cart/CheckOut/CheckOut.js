@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import './checkout.css'
+
 class CheckOut extends Component{
     constructor(props){
         super(props)
@@ -9,14 +11,17 @@ class CheckOut extends Component{
         }
     }
 
-    componentDidMount(){
+    componentDidMount(){ 
+        
         axios.get('/api/cart')
             .then((resp)=>{this.setState({products: resp.data})
-            this.updateTotal()
+            if(!this.state.products){
+                return null} else {
+            this.updateTotal()}
             console.log(resp.data)})
+    } 
             
-            
-    }
+    
     updateTotal(){
         let cartTotals = this.state.products.map((prod)=>{return(Number(prod.price)*Number(prod.qty))})
         let total = cartTotals.reduce((total, val)=>total+=val)
@@ -24,16 +29,20 @@ class CheckOut extends Component{
     }
     
     handleClick(){
-        // axios.get('/api/cart')
-        // .then((resp)=>{this.setState({products: resp.data})
-        
-        // this.updateTotal()
+        axios.get('/api/cart')
+        .then((resp)=>{this.setState({products: resp.data})
+        if(this.state.products){
+            return null} else {
+        this.updateTotal()}
+         } )
     }
+    
 
     render(){
         return( 
-            <div>
-                <button onClick={()=>this.handleClick()}>$  {this.state.total}</button>
+            <div className='updateCart'>
+                <button onClick={()=>this.handleClick()}>Update Cart</button>
+                <div>$  {this.state.total}</div>
             </div>
         )
     }

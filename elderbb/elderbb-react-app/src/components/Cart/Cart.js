@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import './cart.css'
 import CheckOut from './CheckOut/CheckOut'
+import NavBar from './../HomePage/NavBar/NavBar'
 
 class Cart extends Component{
     constructor(props){
@@ -29,6 +30,7 @@ class Cart extends Component{
     render(){
         return(
             <div className='cartMain'>
+                <NavBar/>
                 <h1>Cart</h1>
                 {this.state.cart.map((val)=>{
                     return(

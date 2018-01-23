@@ -15,7 +15,7 @@ class CheckOut extends Component{
         
         axios.get('/api/cart')
             .then((resp)=>{this.setState({products: resp.data})
-            if(!this.state.products){
+            if(this.state.products.length <= 0){
                 return null} else {
             this.updateTotal()}
             console.log(resp.data)})
@@ -31,7 +31,7 @@ class CheckOut extends Component{
     handleClick(){
         axios.get('/api/cart')
         .then((resp)=>{this.setState({products: resp.data})
-        if(this.state.products){
+        if(this.state.products.length <=0){
             return null} else {
         this.updateTotal()}
          } )

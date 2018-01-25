@@ -6,20 +6,28 @@ module.exports = {
         res.status(200).send(cart);
     },
     create: (req, res)=> {
-        cart.push(req.body)
+        // cart.push(req.body)
         // console.log('consol?', cart)
-        // if(cart.length===0){
-        //     cart.push(req.body)
-        // } else{
-        // let newCart = cart.map((item)=>{
-        //     if(item.product === req.body.product){
-        //      item.qty+= req.body.qty
-        //      return item 
-        //     } else {return ({...item, req.body})}
-            
-        //   }) 
-        //   cart = newCart
-        //   }
+        if(cart.length===0){
+            console.log('empty cart comparison')
+            cart.push(req.body)
+        } else{console.log('double item hit')
+        let duplicate = false
+        let index 
+        for(let i =0; i<cart.length; i++){
+            if(cart[i]._id === req.body._id){
+             duplicate = true
+             index = i
+            } 
+        }
+        if(duplicate){
+            cart[index].qty+= req.body.qty  
+        } else if(!duplicate){
+            cart.push(req.body)
+        }
+          }
+        
+        
         
           
         res.status(200).json(cart)
